@@ -1,0 +1,258 @@
+/* =========================================================
+   Eng. Haitham Abdullah Hussein — Bio Link Page Styles
+   ========================================================= */
+
+:root {
+  --color-bg-1: #E0F7FA;
+  --color-bg-2: #CAF0F8;
+  --color-bg-3: #F8FBFF;
+
+  --color-primary: #00B4D8;
+  --color-secondary: #48CAE4;
+  --color-accent: #90E0EF;
+
+  --color-text: #1F2937;
+  --color-text-light: #4B5563;
+
+  --card-bg: rgba(255, 255, 255, 0.55);
+  --card-border: rgba(255, 255, 255, 0.7);
+  --shadow-soft: 0 8px 24px rgba(0, 119, 153, 0.12);
+  --shadow-strong: 0 14px 32px rgba(0, 119, 153, 0.2);
+
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-full: 999px;
+
+  --transition: 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--color-text);
+  min-height: 100vh;
+  background: linear-gradient(160deg, var(--color-bg-1) 0%, var(--color-bg-2) 50%, var(--color-bg-3) 100%);
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 32px 16px 48px;
+}
+
+.container {
+  width: 100%;
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ---------- Profile Card ---------- */
+
+.profile-card {
+  width: 100%;
+  text-align: center;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--radius-lg);
+  padding: 36px 24px 28px;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-image-wrapper {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  margin-bottom: 18px;
+  animation: float 4s ease-in-out infinite;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ffffff;
+  box-shadow: var(--shadow-strong);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.profile-image:hover {
+  transform: scale(1.06);
+  box-shadow: 0 16px 36px rgba(0, 119, 153, 0.3);
+}
+
+.name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: 0.2px;
+}
+
+.title {
+  margin-top: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.bio {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-light);
+}
+
+/* ---------- Links ---------- */
+
+.links {
+  width: 100%;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 15px 20px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: var(--radius-full);
+  color: var(--color-text);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+}
+
+.btn i {
+  font-size: 1.15rem;
+  color: var(--color-primary);
+  transition: color var(--transition);
+}
+
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-strong);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.btn:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 10px 26px rgba(0, 180, 216, 0.35);
+}
+
+.btn-primary i {
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 16px 34px rgba(0, 180, 216, 0.45);
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  margin-top: 32px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  padding-bottom: 8px;
+}
+
+.heart {
+  color: #ff4d6d;
+  display: inline-block;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+/* ---------- Animations ---------- */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger fade-in for buttons */
+.links .btn:nth-child(1) { animation-delay: 0.15s; }
+.links .btn:nth-child(2) { animation-delay: 0.25s; }
+.links .btn:nth-child(3) { animation-delay: 0.35s; }
+.links .btn:nth-child(4) { animation-delay: 0.45s; }
+.links .btn:nth-child(5) { animation-delay: 0.55s; }
+.links .btn:nth-child(6) { animation-delay: 0.65s; }
+.footer { animation-delay: 0.75s; }
+
+/* ---------- Responsive ---------- */
+
+@media (min-width: 480px) {
+  .profile-image-wrapper {
+    width: 140px;
+    height: 140px;
+  }
+
+  .name {
+    font-size: 1.55rem;
+  }
+}
+
+@media (max-width: 340px) {
+  .btn {
+    font-size: 0.92rem;
+    padding: 13px 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
